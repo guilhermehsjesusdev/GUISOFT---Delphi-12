@@ -1,0 +1,47 @@
+# Delphi / RAD Studio generated files
+
+# Compiled DCU files
+*.dcu
+
+# Compiled OBJ files
+*.obj
+
+# Compiled BPL files
+*.bpl
+
+# Compiled DCP files
+*.dcp
+
+# Compiled executable
+*.exe
+
+# Debug folders
+Debug/
+Release/
+
+# Backup files
+*.~*
+*.bak
+*.old
+
+# Delphi package files
+*.dproj.local
+*.groupproj
+*.dsk
+*.local
+*.identcache
+*.DS_Store
+
+# Intermediary files
+*.~*
+*.cache
+*.map
+*.res
+
+# IDE-specific files
+*.nfm
+*.local
+
+# Packages
+*.bpi
+*.bpr
