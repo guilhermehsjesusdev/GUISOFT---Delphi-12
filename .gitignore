@@ -45,3 +45,5 @@ Release/
 # Packages
 *.bpi
 *.bpr
+
+*.ini
