@@ -106,6 +106,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <DCC_UnitSearchPath>A:\Desenvolvimento em Delphi\GUISOFT---Delphi-12\infra;A:\Desenvolvimento em Delphi\GUISOFT---Delphi-12\infra\;A:\Desenvolvimento em Delphi\GUISOFT---Delphi-12\Intefaces;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -123,13 +126,16 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="View\Main.pas">
-            <Form>Form1</Form>
-            <FormType>dfm</FormType>
+        <DCCReference Include="View\SplashScreen.pas">
+            <Form>SplasScreen</Form>
         </DCCReference>
-        <DCCReference Include="Intefaces\LoadGauge.pas"/>
+        <DCCReference Include="View\Main.pas">
+            <Form>FrmMain</Form>
+        </DCCReference>
+        <DCCReference Include="infra\ConfigReader.pas"/>
+        <DCCReference Include="infra\DBConnection.pas"/>
         <DCCReference Include="Intefaces\LoadBarProgress.pas"/>
-        <DCCReference Include="Intefaces\Connection.pas"/>
+        <DCCReference Include="Intefaces\LoadGauge.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -150,11 +156,27 @@
                 <Source>
                     <Source Name="MainSource">GSOFT.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
                 <DeployFile LocalName="Win32\Debug\GSOFT.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>GSOFT.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\GSOFT.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win64">
+                        <RemoteName>GSOFT.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\GSOFT.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>GSOFT.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
